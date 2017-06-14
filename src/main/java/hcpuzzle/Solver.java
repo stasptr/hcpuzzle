@@ -49,19 +49,22 @@ public final class Solver {
     /**
      * Recursive solution finding
      *
-     * @param puzzle current puzzle state
+     * @param puzzle   current puzzle state
      * @param variants all variants
-     * @param mask bitmask for available variants (already used puzzle fragment index bit is set to 0)
+     * @param mask     bitmask for available variants (already used puzzle fragment index bit is set to 0)
      * @return true if solution found
      */
     private static boolean findSolution(Puzzle puzzle, List<List<Block>> variants, int mask) {
         if (mask == 0) {
             return false;
         }
-        for (int i = 0, bit = 1; i < variants.size(); bit <<= 1, i++) {
-            if ((mask & bit) != 0) {
-                int newMask = mask & ~bit;
-                for (Block block : variants.get(i)) {
+        for (int i = 0, variantsSize = variants.size(); i < variantsSize; i++) {
+            int newMask = mask & ~(1<<i);
+            if (newMask != mask) {
+                List<Block> get = variants.get(i);
+                //noinspection ForLoopReplaceableByForEach
+                for (int j = 0, getSize = get.size(); j < getSize; j++) {
+                    Block block = get.get(j);
                     if (puzzle.tryAdd(block)) {
                         if (puzzle.isFull() || findSolution(puzzle, variants, newMask)) {
                             return true;

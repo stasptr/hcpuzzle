@@ -55,16 +55,12 @@ public final class Block {
         re4 = re(e4);
     }
 
-    public Block(char label, int block, int j) {
-        this(label, transform(block, j));
-    }
-
     private static int re(int v3) {
         return (((v3 & 1) == 0) ? 4 : 0) | (((v3 & 2) == 0) ? 2 : 0) | (((v3 & 4) == 0) ? 1 : 0);
     }
 
 
-    public boolean getByXY(int x, int y) {
+    private boolean getByXY(int x, int y) {
         if (y == 0) {
             return (bits & (1 << x)) != 0;
         } else if (x == 4) {

@@ -16,7 +16,7 @@ class SolverTest {
         Random rnd = new Random(seed);
         int[] data = new int[6];
 
-        for (int i = 0; i < 100_000; i++) {
+        for (int i = 0; i < 1_000_000; i++) {
             ArrayList<Integer> list = new ArrayList<>(ints);
             Collections.shuffle(list, rnd);
             for (int j = 0; j < 6; j++) {
