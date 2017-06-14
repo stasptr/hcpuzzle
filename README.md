@@ -1,10 +1,12 @@
 # HC-puzzle - HappyCube puzzle solver  
 
 [![Build Status](https://travis-ci.org/stasptr/hcpuzzle.svg?branch=master)](https://travis-ci.org/stasptr/hcpuzzle)
-Inspired by test task
 
 Construct HappyCube from given 6 5x5 blocks
+
 Any block can be rotated or flipped
+
+Inspired by test task
 
 ### input format
 
